@@ -1,4 +1,10 @@
-const Table = () => {
+import { UserProps } from "types/user";
+
+type TableProps = {
+	users: UserProps[];
+};
+
+const Table = ({ users }: TableProps) => {
 	return (
 		<table className="w-full table-fixed ">
 			<thead>
@@ -9,18 +15,18 @@ const Table = () => {
 			</thead>
 
 			<tbody>
-				<tr className="bg-white">
-					<td className="px-4 text-center border-2 border-gray-500 py-2">
-						Washington Pimenta de Campos
-					</td>
-					<td className="px-4 text-center border-2 border-gray-500 py-2">Masculino</td>
-					<td className="px-4 text-center border-2 border-gray-500 py-2">28 de maio de 2021</td>
-					<td className="px-4 text-center border-2 border-gray-500 py-2">
-						<button className="px-8 py-2 bg-gray-400 hover:bg-gray-600 text-white shadow rounded">
-							View
-						</button>
-					</td>
-				</tr>
+				{users.map(({ name, gender, dob }) => (
+					<tr key={`${name.first} ${name.last}`} className="bg-white">
+						<td className="px-4 text-center border-2 border-gray-500 py-2">{`${name.first} ${name.last}`}</td>
+						<td className="px-4 text-center border-2 border-gray-500 py-2">{gender}</td>
+						<td className="px-4 text-center border-2 border-gray-500 py-2">{dob.date}</td>
+						<td className="px-4 text-center border-2 border-gray-500 py-2">
+							<button className="px-8 py-2 bg-gray-400 hover:bg-gray-600 text-white shadow rounded">
+								View
+							</button>
+						</td>
+					</tr>
+				))}
 			</tbody>
 		</table>
 	);

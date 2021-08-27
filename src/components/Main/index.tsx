@@ -1,7 +1,13 @@
+import { UserProps } from "types/user";
+
 import SearchField from "components/SearchField";
 import Table from "components/Table";
 
-const Main = () => {
+type MainProps = {
+	users: UserProps[];
+};
+
+const Main = ({ users }: MainProps) => {
 	return (
 		<main className="bg-gray-100">
 			<div className="container py-6">
@@ -12,7 +18,7 @@ const Main = () => {
 				</p>
 
 				<SearchField />
-				<Table />
+				<Table users={users} />
 			</div>
 		</main>
 	);
