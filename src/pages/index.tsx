@@ -1,12 +1,7 @@
-import Button from "react-bootstrap/Button";
+import Main from "components/Main";
 
 const Home = () => {
-	return (
-		<>
-			<h1>NextJs</h1>
-			<Button>Bootstrap</Button>
-		</>
-	);
+	return <Main />;
 };
 
 export default Home;
