@@ -1,4 +1,5 @@
 import SearchField from "components/SearchField";
+import Table from "components/Table";
 
 const Main = () => {
 	return (
@@ -11,6 +12,7 @@ const Main = () => {
 				</p>
 
 				<SearchField />
+				<Table />
 			</div>
 		</main>
 	);
