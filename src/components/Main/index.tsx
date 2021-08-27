@@ -1,4 +1,4 @@
-import { RiUserSearchLine } from "react-icons/ri";
+import SearchField from "components/SearchField";
 
 const Main = () => {
 	return (
@@ -10,10 +10,7 @@ const Main = () => {
 					officia anim ipsum ad nostrud. Culpa consequat amet quis non mollit cillum.
 				</p>
 
-				<div className="w-full flex items-center mb-8 px-4 py-2 bg-white border-2 border-gray-300 rounded  text-gray-500">
-					<input className="w-full outline-none" type="text" placeholder="Searching" />
-					<RiUserSearchLine style={{ cursor: "pointer" }} size={20} />
-				</div>
+				<SearchField />
 			</div>
 		</main>
 	);
