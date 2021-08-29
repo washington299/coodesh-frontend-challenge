@@ -18,7 +18,7 @@ const Table = ({ users }: TableProps) => {
 		<>
 			{Object.keys(userInfo).length > 0 && (
 				<ModalWrapper>
-					<UserModal userInfo={userInfo} />
+					<UserModal userInfo={userInfo} setUserInfo={setUserInfo} />
 				</ModalWrapper>
 			)}
 			<table className="w-full table-fixed ">
