@@ -4,6 +4,7 @@ import { UserProps } from "types/user";
 
 import Main from "components/Main";
 import TopBar from "components/TopBar";
+import Header from "components/Header";
 
 type HomeProps = {
 	users: UserProps[];
@@ -13,6 +14,7 @@ const Home = ({ users }: HomeProps) => {
 	return (
 		<>
 			<TopBar />
+			<Header />
 			<Main users={users} />
 		</>
 	);
