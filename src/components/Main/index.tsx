@@ -5,6 +5,7 @@ import { queries } from "services/queries";
 import { UserProps } from "types/user";
 
 import SearchField from "components/SearchField";
+import SelectField from "components/SelectField";
 import Table from "components/Table";
 
 type MainProps = {
@@ -31,6 +32,7 @@ const Main = ({ users }: MainProps) => {
 				</p>
 
 				<SearchField users={userList} setUserList={setUserList} />
+				<SelectField users={userList} setUserList={setUserList} />
 				<Table users={userList} />
 
 				<div className="flex justify-center items-center mt-8 cursor-pointer" onClick={handleClick}>
