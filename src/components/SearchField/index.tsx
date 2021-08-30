@@ -1,7 +1,8 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { RiUserSearchLine } from "react-icons/ri";
-import { queries } from "services/queries";
 
+import { queries } from "services/queries";
+import { QUANTITY_OF_USERS } from "helpers";
 import { UserProps } from "types/user";
 
 type SearchFieldProps = {
@@ -13,10 +14,8 @@ const SearchField = ({ users, setUserList }: SearchFieldProps) => {
 	const [text, setText] = useState("");
 
 	const handleSearchFieldClick = async () => {
-		const quantityOfUsers = 50;
-
 		if (!text) {
-			const { data } = await queries.getLimitUsers(quantityOfUsers);
+			const { data } = await queries.getLimitUsers(QUANTITY_OF_USERS);
 			setUserList(data.results);
 			return;
 		}

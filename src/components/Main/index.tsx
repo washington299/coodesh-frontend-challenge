@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AiOutlineReload } from "react-icons/ai";
 
 import { queries } from "services/queries";
+import { QUANTITY_OF_USERS } from "helpers";
 import { UserProps } from "types/user";
 
 import SearchField from "components/SearchField";
@@ -16,9 +17,7 @@ const Main = ({ users }: MainProps) => {
 	const [userList, setUserList] = useState(users);
 
 	const handleClick = async () => {
-		const quantityOfUsers = 50;
-
-		const { data } = await queries.getLimitUsers(quantityOfUsers);
+		const { data } = await queries.getLimitUsers(QUANTITY_OF_USERS);
 		setUserList(userList.concat(data.results));
 	};
 

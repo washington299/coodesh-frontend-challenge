@@ -1,5 +1,5 @@
 import { queries } from "services/queries";
-
+import { QUANTITY_OF_USERS } from "helpers";
 import { UserProps } from "types/user";
 
 import Main from "components/Main";
@@ -21,8 +21,7 @@ const Home = ({ users }: HomeProps) => {
 };
 
 export const getStaticProps = async () => {
-	const quantityOfUsers = 50;
-	const { data } = await queries.getLimitUsers(quantityOfUsers);
+	const { data } = await queries.getLimitUsers(QUANTITY_OF_USERS);
 
 	return {
 		props: {

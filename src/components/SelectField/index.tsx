@@ -1,7 +1,7 @@
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 import { queries } from "services/queries";
-
+import { QUANTITY_OF_USERS } from "helpers";
 import { UserProps } from "types/user";
 
 type SelectFieldProps = {
@@ -11,10 +11,8 @@ type SelectFieldProps = {
 
 const SelectField = ({ users, setUserList }: SelectFieldProps) => {
 	const handleSelectChange = async (e: ChangeEvent<HTMLSelectElement>) => {
-		const quantityOfUsers = 50;
-
 		if (e.target.value === "none") {
-			const { data } = await queries.getLimitUsers(quantityOfUsers);
+			const { data } = await queries.getLimitUsers(QUANTITY_OF_USERS);
 			setUserList(data.results);
 			return;
 		}
