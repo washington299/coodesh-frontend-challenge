@@ -1,10 +1,45 @@
+import { Dispatch, SetStateAction, useState } from "react";
 import { RiUserSearchLine } from "react-icons/ri";
+import { queries } from "services/queries";
 
-const SearchField = () => {
+import { UserProps } from "types/user";
+
+type SearchFieldProps = {
+	users: UserProps[];
+	setUserList: Dispatch<SetStateAction<UserProps[]>>;
+};
+
+const SearchField = ({ users, setUserList }: SearchFieldProps) => {
+	const [text, setText] = useState("");
+
+	const handleSearchFieldClick = async () => {
+		const quantityOfUsers = 50;
+
+		if (!text) {
+			const { data } = await queries.getLimitUsers(quantityOfUsers);
+			setUserList(data.results);
+			return;
+		}
+
+		const usersFiltered = users.filter(
+			user =>
+				user.name.first.toLowerCase().includes(text.toLowerCase()) ||
+				user.name.last.toLowerCase().includes(text.toLowerCase()) ||
+				user.nat.toLowerCase().includes(text.toLowerCase()),
+		);
+		setUserList(usersFiltered);
+	};
+
 	return (
 		<div className="w-full flex items-center mb-8 px-4 py-2 bg-white border-2 border-gray-300 rounded  text-gray-500">
-			<input className="w-full outline-none" type="text" placeholder="Searching" />
-			<RiUserSearchLine style={{ cursor: "pointer" }} size={20} />
+			<input
+				className="w-full outline-none"
+				type="text"
+				placeholder="Searching"
+				value={text}
+				onChange={e => setText(e.target.value)}
+			/>
+			<RiUserSearchLine style={{ cursor: "pointer" }} size={20} onClick={handleSearchFieldClick} />
 		</div>
 	);
 };

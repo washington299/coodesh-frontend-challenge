@@ -30,7 +30,7 @@ const Main = ({ users }: MainProps) => {
 					officia anim ipsum ad nostrud. Culpa consequat amet quis non mollit cillum.
 				</p>
 
-				<SearchField />
+				<SearchField users={userList} setUserList={setUserList} />
 				<Table users={userList} />
 
 				<div className="flex justify-center items-center mt-8 cursor-pointer" onClick={handleClick}>
