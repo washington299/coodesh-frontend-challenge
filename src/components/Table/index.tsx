@@ -21,7 +21,7 @@ const Table = ({ users }: TableProps) => {
 					<UserModal userInfo={userInfo} setUserInfo={setUserInfo} />
 				</ModalWrapper>
 			)}
-			<table className="w-full table-fixed ">
+			<table className="w-full table-auto">
 				<thead>
 					<tr className="bg-gray-400">
 						<th className="w-1/2 border-2 border-gray-500 py-2">Name</th>
